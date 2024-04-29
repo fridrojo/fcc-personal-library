@@ -6,42 +6,53 @@
 *       
 */
 
-const chaiHttp = require('chai-http');
 const chai = require('chai');
+const chaiHttp = require('chai-http');
+
+const server = require('../server.js');
+
 const assert = chai.assert;
-const server = require('../server');
 
 chai.use(chaiHttp);
 
-suite('Functional Tests', function() {
+suite('Functional Tests', function () {
 
   /*
   * ----[EXAMPLE TEST]----
   * Each test should completely test the response of the API end-point including response status code!
   */
-  test('#example Test GET /api/books', function(done){
-     chai.request(server)
-      .get('/api/books')
-      .end(function(err, res){
-        assert.equal(res.status, 200);
-        assert.isArray(res.body, 'response should be an array');
-        assert.property(res.body[0], 'commentcount', 'Books in array should contain commentcount');
-        assert.property(res.body[0], 'title', 'Books in array should contain title');
-        assert.property(res.body[0], '_id', 'Books in array should contain _id');
-        done();
-      });
+  test('#example Test GET /api/books', function (done) {
+    chai.request(server)
+        .get('/api/books')
+        .end(function (err, res) {
+          assert.equal(res.status, 200);
+          assert.isArray(res.body, 'response should be an array');
+          assert.property(res.body[0], 'commentcount', 'Books in array should contain commentcount');
+          assert.property(res.body[0], 'title', 'Books in array should contain title');
+          assert.property(res.body[0], '_id', 'Books in array should contain _id');
+          done();
+        });
   });
   /*
   * ----[END of EXAMPLE TEST]----
   */
 
-  suite('Routing tests', function() {
+  suite('Routing tests', function () {
 
+    const urlPath = "/api/books";
+    const true_idUrlPath = urlPath;
+    const fake_idUrlPath = urlPath;
 
-    suite('POST /api/books with title => create book object/expect book object', function() {
+    suite('POST /api/books with title => create book object/expect book object', function () {
       
-      test('Test POST /api/books with title', function(done) {
+      test('Test POST /api/books with title', function (done) {
+
+        chai.request(server)
+            .post("/api/books")
+            .type("application/x-www-form-urlencoded")
+
         //done();
+
       });
       
       test('Test POST /api/books with no title given', function(done) {
@@ -95,7 +106,7 @@ suite('Functional Tests', function() {
         //done();
       });
 
-      test('Test DELETE /api/books/[id] with  id not in db', function(done){
+      test('Test DELETE /api/books/[id] with id not in db', function(done){
         //done();
       });
 

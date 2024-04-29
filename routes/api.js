@@ -9,15 +9,16 @@
 "use strict";
 
 const mongoose = require("mongoose");
+
 const BookModel = require("../models/book.js");
 
-const handleWrongId = (res) => {
-  res.status(400)
-     .json({error: "An error occurred while processing your request: the book identifier must be a 24-character hexadecimal string."});
-};
 const handleNoBook = (res) => {
   res.status(404)
      .send("no book exists");
+};
+const handleInvalidId = (res) => {
+  res.status(400)
+     .json({error: "An error occurred while processing your request: the book identifier must be a 24-character hexadecimal string."});
 };
 const handleServerErr = (err, res) => {
   res.status(500)
@@ -134,7 +135,7 @@ module.exports = function (app) {
 
 				 } else {
 
-           handleWrongId(res);
+           handleInvalidId(res);
 				   
 				 };
 
@@ -170,7 +171,7 @@ module.exports = function (app) {
 
          } else {
 
-           handleWrongId(res);
+           handleInvalidId(res);
 
          };
 
@@ -206,7 +207,7 @@ module.exports = function (app) {
          
          } else {
 
-           handleWrongId(res); 
+           handleInvalidId(res); 
 
          };
 
