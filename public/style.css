@@ -1,27 +1,32 @@
-.border {
-  border-style: solid;
-  border-width: 1px;
-  margin: 10px;
-}
-
-#sampleui {
-  max-width: 450px;
-  margin-left: 5%;
-  height: 100%;
-}
-
-#sampleposting {
-  max-width: 450px;
+article {
+  border: 0.6rem double Chocolate;
+  margin: 2.3rem;
   text-align: center;
-  margin-left: 5%;
 }
 
-#userstories {
-  margin-left: 5%;
+body {
+  background-color: beige;
+}
+
+code {
+  background-color: gainsboro;
+  border: 0.18rem solid darkgray;
+  display: inline-block;
+  margin: 0.11rem;  
+}
+
+footer,
+h1,
+h2 {
+  text-align: center;
 }
 
 form {
   padding: 5px;
+}
+
+input {
+  margin-bottom: 5px;
 }
 
 label {
@@ -29,6 +34,99 @@ label {
   font-weight: bold;
 }
 
-input {
-  margin-bottom: 5px;
+li {
+
+  font-size: 1.15rem;
+  margin: 0.3rem;
+
+  code {
+    background-color: unset;
+    border: unset;
+    display: unset;
+    font-weight: bold;
+    margin: unset;      
+  }
+
 }
+
+ol {
+  display: inline-block;
+  hyphens: auto;
+  list-style-position: inside;
+  margin: 2.3rem;  
+  overflow-wrap: anywhere;  
+}
+
+.base-examples {
+
+  background-color: lemonchiffon;  
+
+  li:nth-of-type(1) {
+    background-color: green;
+  }
+
+  li:nth-of-type(2) {
+    background-color: red;
+  }
+
+  li:nth-of-type(3) {
+    background-color: aquamarine;
+  }
+
+  li:nth-of-type(4) {
+    background-color: burlywood;
+  }
+
+}
+
+.border {
+  border-style: solid;
+  border-width: 1px;
+  margin: 10px;
+}
+
+.id-examples {
+
+  background-color: aliceblue;
+
+  li:nth-of-type(-6n + 7) {
+    background-color: palegreen;
+  }
+
+  li:nth-of-type(2) {
+    background-color: tomato;
+  }
+
+  li:nth-of-type(-5n + 8), 
+  li:nth-of-type(-7n + 11) {
+    background-color: hotpink;
+  }
+
+  li:nth-of-type(5), 
+  li:nth-of-type(3n + 6):nth-of-type(-n + 12) {
+    background-color: orange;
+  }
+
+  li:nth-of-type(10) {
+    background-color: khaki;
+  }
+
+}
+
+#sampleposting {
+  margin-left: 5%;
+  max-width: 450px;
+  text-align: center;  
+}
+
+#sampleui {
+  margin-left: 5%; 
+  max-width: 450px;   
+}
+
+#userstories {
+  margin-left: 5%;
+}
+
+
+

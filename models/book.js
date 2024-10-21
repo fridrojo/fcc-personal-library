@@ -8,8 +8,21 @@ mongoose.connect(mongoUri);
 
 const bookSchema = new mongoose.Schema({
   title: {type: String, required: true, index: true},
-  comments: {type: [String], default: []},
-  commentcount: {type: Number, default: 0}
+  comments: {type: [String], default: []}
+},
+{
+  virtuals: {
+    commentcount: {
+      get() {
+        return this.comments.length;
+      }
+    }
+  },
+  id: false,
+  toJSON: {
+    versionKey: false,
+    virtuals: true  
+  }
 });
 
 const BookModel = mongoose.model("Book", bookSchema);

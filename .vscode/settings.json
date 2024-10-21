@@ -1,3 +1,8 @@
 {
-  "workbench.colorTheme": "freeCodeCamp Dark Theme"
+  "workbench.colorTheme": "freeCodeCamp Dark Theme",
+  "launch": {
+    
+    "configurations": [],
+    "compounds": []
+  }
 }
