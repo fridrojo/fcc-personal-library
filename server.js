@@ -31,7 +31,7 @@ fccTestingRoutes(app);
 apiRoutes(app);  
     
 //404 Not Found Middleware
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.status(404)
     .type('text')
     .send('Not Found');
@@ -45,7 +45,7 @@ const listener = app.listen(process.env.PORT || 3000, function () {
     setTimeout(function () {
       try {
         runner.run();
-      } catch(e) {
+      } catch (e) {
           console.log('Tests are not valid:');
           console.error(e);
       }
